@@ -1,0 +1,30 @@
+1- La commande "telnet time.nist.gov daytime" a pour effet de se connecter au serveur et d'envoyer une requête GET pour recevoir la date et l'heure Aujourd'hui
+2- le service daytime envoie simplement la date et l'heure actuelles sous forme de chaîne de caractères (TCP/UDP)
+3- daytime service utilise les protocoles tcp port 13 et upd port 13
+user@home:$ cat /etc/services|grep daytime
+    daytime          13/udp     # Daytime (RFC 867)
+    daytime          13/tcp     # Daytime (RFC 867)
+4-
+ftp              21/udp     # File Transfer [Control]
+ftp              21/tcp     # File Transfer [Control]
+echo              7/udp     # Echo
+echo              7/tcp     # Echo
+http             80/udp     www www-http # World Wide Web HTTP
+http             80/tcp     www www-http # World Wide Web HTTP
+smtp             25/udp     # Simple Mail Transfer
+smtp             25/tcp     # Simple Mail Transfer
+ssh              22/udp     # SSH Remote Login Protocol
+ssh              22/tcp     # SSH Remote Login Protocol
+telnet           23/udp     # Telnet
+telnet           23/tcp     # Telnet
+
+5-
+    Pourquoi ne peut-on pas utiliser la commande telnet pour faire ces expériences ?
+        nous utilisons netcat sur telnet car telnet a un problème de sécurité "vous pouvez obtenir des informations sur un hôte sans une analyse intensive comme nmap" et c'est pourquoi il est remplacé par netcat
+    Rappelez les principales différences entre TCP et UDP ?
+        -TCP et UDP sont les 2 principaux protocoles de la couche transport. La différence entre TCP et UDP sont fondamentales.
+        -TCP fonctionne un peu comme le téléphone : il faut d'abord établir une connexion TCP entre les 2 machines, ce qu'on pourrait comparer à composer le numéro de téléphone.
+        -UDP est un protocole stateless (sans état), on peut le comparer au courrier : vous placez le message à envoyer dans une enveloppe qui contient toutes les informations nécessaires au routage : l'adresse IP et le port (i.e. les coordonnées du destinataire), puis vous envoyez l'enveloppe.
+    Expliquez rapidement la différence de fonctionnement du service daytime entre TCP et UDP ?
+         TCP daytime: la connexion est établie, la date et l'heure actuelles sont envoyées connexion sous forme de chaîne de caractères ascii (et toutes les données reçues sont jeté). Le service ferme la connexion après l'envoi du citation.
+        UDP daytime: Lorsqu'un datagramme est reçu, un datagramme répondant est envoyé contenant la date et l'heure actuelles sous forme de chaîne de caractères ASCII (le les données du datagramme reçu sont ignorées).
