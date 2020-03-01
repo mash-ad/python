@@ -1,0 +1,5 @@
+1- Quel est son numéro de port ?
+$ cat /etc/services |grep -i "echo"
+    echo              4/ddp    #AppleTalk Echo Protocol
+    echo              7/udp     # Echo
+    echo              7/tcp     # Echo
