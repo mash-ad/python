@@ -1,0 +1,2 @@
+Pourquoi ce dernier est-il tronqué ?
+    - la requete est tronqué parceque c'est bad requete GET

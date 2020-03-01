@@ -1,0 +1,21 @@
+les etapes du programe daytime.py est:
+    - import socket // inclure la bibliothèque de sockets
+    - s = .. // créer une socket tcp
+    - host= .. // definir une variable host qui contien le nom du host
+    - port=.. // le numéro du port
+    - s.connect // creer une connection avec le host dans le port 13
+    - data = s.recv(1024) // recver les donners 
+    - print(data) // afficher les donners
+    - s.close() // fermer la connection
+
+
+- AF_INET : est une famille d'adresses utilisée pour désigner le type d'adresses avec lesquelles votre socket peut communiquer (dans ce cas, les adresses Internet Protocol v4).
+- SOCK_STREAM : est un protocole basé sur la connexion. La connexion est établie et les deux parties ont une conversation jusqu'à ce que la connexion soit interrompue par l'une des parties ou par une erreur de réseau.
+
+- Le role de variable s est de creer une socket de famille d'addresses AF_INET et d'une type de connection SOCK_STREAM
+
+Quelles lignes déclenchent la connexion & la déconnexion TCP/IP ? 
+    - s.connect() // ligne de declenchent du connection     
+    - s.close() // ligne de la déconnexion du connection
+Quelle fonction sert à recevoir des données dans ce code ?
+    - s.recv(1024) // recevoir des données
